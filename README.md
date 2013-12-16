@@ -48,6 +48,11 @@ user.joined_challenges()
 
 user.profile()
 
+user.health()
+
 user.activities("cardio")
+
+user.stats("2013-12-01", "2013-12-13")
+
 
 ```

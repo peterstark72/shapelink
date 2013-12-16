@@ -85,6 +85,11 @@ SHAPELINK_METHODS = {
         'required' : ['user_token'],
         'optional' : [],
         'endpoint' : "/statistics/getTrainingSummary"    
+    },
+    'get_health' : {
+        'required' : ['user_token', 'culture'],
+        'optional' : [],
+        'endpoint' : "/statistics/getHealthSummary"    
     }
 
 }
@@ -249,13 +254,17 @@ class ShapelinkUser(object):
                             challenge_id, self.culture)
 
 
-    def stats_by_day(self, start_date, end_date):
+    def stats(self, start_date, end_date):
         '''Returns day by day stats'''
         return self.api.get_days(self.user_token, start_date, end_date)
 
 
     def save_weight(self, value, date):
         return self.api.save_weight(self.user_token, value, date)
+
+
+    def health(self):
+        return self.api.get_health(self.user_token, self.culture)
 
 
 
